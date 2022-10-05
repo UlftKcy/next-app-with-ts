@@ -9,7 +9,7 @@ export const meetups:IMeetup[] = [
         id:"m1",
         title:"Sirkeci railway terminal",
         image:istanbul,
-        address:"Sirkeci Istanbul/Turkey",
+        address:"Istanbul/Turkey",
         description:"Interior of the Sirkeci railway terminal"
     },
     {
