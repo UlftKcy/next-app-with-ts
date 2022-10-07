@@ -1,7 +1,12 @@
-import React from 'react'
+import { useRouter } from 'next/router';
+import React, { FC } from 'react'
 import { IMeetup } from '../types';
 
-const Meetup = (meetup: IMeetup) => {
+const Meetup:FC<IMeetup> = (meetup) => {
+    const router = useRouter();
+    const showMeetupHandler = ()=>{
+        router.push("/" + meetup.id);
+    };
     return (
         <div className='w-1/3 h-1/3 group relative my-10 mx-auto p-2 font-mono'>
             <div className='w-full group-hover:opacity-50'>
@@ -13,7 +18,7 @@ const Meetup = (meetup: IMeetup) => {
                 </div>
             </div>
             <div className='absolute z-10 inset-y-1/2 w-full h-0 flex justify-center items-center group-hover:opacity-100 opacity-0'>
-                <button className='border border-indigo-800 bg-gray-300 text-indigo-700 ring ring-indigo-400 font-bold py-2 px-10 rounded-md'>Go to meetup</button>
+                <button onClick={showMeetupHandler} className='border border-indigo-800 bg-gray-300 text-indigo-700 ring ring-indigo-400 font-bold py-2 px-10 rounded-md'>Go to meetup</button>
             </div>
         </div>
     )
