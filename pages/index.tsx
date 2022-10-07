@@ -1,17 +1,15 @@
-import type { NextPage } from 'next';
-import { FC } from 'react';
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Meetuplist from '../components/meetuplist';
-import { IMeetup } from '../types';
 import { meetups } from '../utils/meetups';
 
-const Home:FC<IMeetup> = (props) => {
+const Home:NextPage= ({meetups}: InferGetStaticPropsType<typeof getStaticProps>) => {
 
   return (
-    <Meetuplist {...props.meetups}/>
+    <Meetuplist {...meetups}/>
   )
 }
 
-export async function getStaticProps(){
+export const getStaticProps: GetStaticProps = async () => {
   // fetch data from an API
   return{
     props:{
