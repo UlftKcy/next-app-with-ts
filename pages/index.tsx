@@ -9,6 +9,7 @@ const Home:NextPage= ({meetups}: InferGetStaticPropsType<typeof getStaticProps>)
   )
 }
 
+// This function gets called at build time
 export const getStaticProps: GetStaticProps = async () => {
   // fetch data from an API
   return{

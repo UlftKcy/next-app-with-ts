@@ -6,28 +6,28 @@ import { IMeetup } from "../types";
 
 export const meetups:IMeetup[] = [
     {
-        id:"m1",
+        id:"1",
         title:"Sirkeci railway terminal",
         image:istanbul,
         address:"Istanbul/Turkey",
         description:"Interior of the Sirkeci railway terminal"
     },
     {
-        id:"m2",
+        id:"2",
         title:"Wat Arun",
         image:bangkok,
         address:"Bangkok",
         description:"a temple situated in the city of Bangkok"
     },
     {
-        id:"m3",
+        id:"3",
         title:"Brussels Capital Region",
         image:brussels,
         address:"Brussels/Belgium",
         description:"Belgium capital"
     },
     {
-        id:"m4",
+        id:"4",
         title:"Bongeunsa temple",
         image:seul,
         address:"Seoul/Korea",
