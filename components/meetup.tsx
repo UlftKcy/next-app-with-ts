@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { FC } from 'react'
 import { IMeetup } from '../types';
@@ -10,7 +11,7 @@ const Meetup:FC<IMeetup> = (meetup) => {
     return (
         <div className='w-1/3 h-1/3 group relative my-10 mx-auto p-2 font-mono'>
             <div className='w-full group-hover:opacity-50'>
-                <img className='object-cover rounded-t-2xl' src={meetup.image.src} alt={meetup.title} />
+                <Image className='object-cover rounded-t-2xl block' width={500} height={400} src={meetup.image.src} alt={meetup.title} />
                 <div className='flex flex-col justify-center h-28 bg-indigo-900 text-white px-5 rounded-b-2xl'>
                     <h4 className='font-extrabold text-xl mb-2 tracking-wide'>{meetup.title}</h4>
                     <span className='font-light mb-1'>{meetup.description}</span>

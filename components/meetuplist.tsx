@@ -7,7 +7,7 @@ const Meetuplist:FC<IMeetup> = () => {
     return (
         <>
             {React.Children.toArray(meetups.map((meetup: IMeetup):ReactElement => (
-                <Meetup {...meetup}/>
+                <Meetup {...meetup} key={meetup.id}/>
             )))}
         </>
     )
