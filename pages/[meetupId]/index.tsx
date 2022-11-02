@@ -1,15 +1,15 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import Image from 'next/image';
 import { meetups } from '../../utils/meetups';
 
 const MeetUpDetail = ({ meetup }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(meetup);
   return (
-    <div className='h-screen flex place-items-center p-12'>
+    <div className='flex place-items-center p-12'>
       <div className='grid grid-cols-2 grid-rows-1'>
-        <div className='col-span-1 rounded-lg'>
-          <img className='rounded-md' src={meetup.image.src} alt={meetup.title} />
+        <div className='md:col-span-1 col-span-2 rounded-lg'>
+          <Image className='rounded-md' src={meetup.image.src} width={600} height={400} alt={meetup.title} />
         </div>
-        <div className='col-span-1 flex place-items-center'>
+        <div className='md:col-span-1 col-span-2 flex place-items-center'>
           <div className='w-full text-center'>
             <h1 className='text-3xl font-bold'>{meetup.title}</h1>
             <p>{meetup.description}</p>
