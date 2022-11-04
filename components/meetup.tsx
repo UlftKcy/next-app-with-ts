@@ -1,25 +1,31 @@
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { FC } from 'react'
 import { IMeetup } from '../types';
 
-const Meetup:FC<IMeetup> = (meetup) => {
+const Meetup: FC<IMeetup> = (meetup) => {
     const router = useRouter();
-    const showMeetupHandler = ()=>{
+    const showMeetupHandler = () => {
         router.push("/" + meetup.id);
     };
     return (
-        <div className='w-1/3 h-1/3 group relative my-10 mx-auto p-2 font-mono'>
-            <div className='w-full group-hover:opacity-50'>
-                <Image className='object-cover rounded-t-2xl block' width={500} height={400} src={meetup.image.src} alt={meetup.title} />
-                <div className='flex flex-col justify-center h-28 bg-indigo-900 text-white px-5 rounded-b-2xl'>
-                    <h4 className='font-extrabold text-xl mb-2 tracking-wide'>{meetup.title}</h4>
-                    <span className='font-light mb-1'>{meetup.description}</span>
-                    <span className='font-light text-xs text-opacity-30 text-right'>{meetup.address}</span>
+        <div className='m-12'>
+            <div className='mx-auto max-w-2xl overflow-hidden rounded-xl bg-white shadow-md'>
+                <div className='sm:flex h-full'>
+                    <div className='sm:shrink-0'>
+                        <img className='object-cover h-40 w-full sm:h-full sm:w-40' src={meetup.image.src} alt={meetup.title} />
+                    </div>
+                    <div className='p-8'>
+                        <div className='text-xs font-semibold uppercase tracking-wide text-sky-400'>
+                            {meetup.address}
+                        </div>
+                        <a onClick={showMeetupHandler} className='mt-1 block text-lg font-medium leading-tight text-black cursor-pointer hover:underline'>
+                            <h4 className='font-extrabold text-xl mb-2 tracking-wide'>{meetup.title}</h4>
+                        </a>
+                        <div className='font-bold tracking-wide'>
+                            <span className='font-light text-sm text-right'>{meetup.description}</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div className='absolute z-10 inset-y-1/2 w-full h-0 flex justify-center items-center group-hover:opacity-100 opacity-0'>
-                <button onClick={showMeetupHandler} className='border border-indigo-800 bg-gray-300 text-indigo-700 ring ring-indigo-400 font-bold py-2 px-10 rounded-md'>Go to meetup</button>
             </div>
         </div>
     )
